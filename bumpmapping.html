@@ -154,6 +154,10 @@
                 type: "t",
                 value: THREE.ImageUtils.loadTexture('textures/mur_NormalMap.bmp')
             },
+            heightMap: {
+                type: "t",
+                value: THREE.ImageUtils.loadTexture('textures/mur_Hauteur.bmp')
+            },
             ambientColor: {
                 type: "v3",
                 value: new THREE.Vector3(0.0, 0.0, 0.0)
@@ -169,6 +173,14 @@
             shininess: {
                 type: "f",
                 value: 1.0
+            },
+            scale: {
+                type: "f",
+                value: 0.04
+            },
+            bias: {
+                type: "f",
+                value: -0.02
             }
         };
         // merge default light-Uniforms
