@@ -11,4 +11,4 @@ Tree type of Shaders created with WebGL and three.js:
   * Vertex Shader (tbd)
   * Fragment Shader (tbd)
   
-To view the files, fork this Repo and open the html-files in your browser.
+To view the files, fork this repo and open the html-files in your browser.
