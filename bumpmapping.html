@@ -150,7 +150,26 @@
                 type: "t",
                 value: THREE.ImageUtils.loadTexture('textures/mur_Ambiant.bmp')
             },
-            // TODO: ADD further uniforms
+            normalMap: {
+                type: "t",
+                value: THREE.ImageUtils.loadTexture('textures/mur_NormalMap.bmp')
+            },
+            ambientColor: {
+                type: "v3",
+                value: new THREE.Vector3(1.0, 0.0, 0.0)
+            },
+            diffuseColor: {
+                type: "v3",
+                value: new THREE.Vector3(0.0, 1.0, 0.0)
+            },
+            spectColor: {
+                type: "v3",
+                value: new THREE.Vector3(0.0, 1.0, 1.0)
+            },
+            shininess: {
+                type: "f",
+                value: 1.0
+            }
         };
         // merge default light-Uniforms
         var lightuniforms = THREE.UniformsLib['lights'];
