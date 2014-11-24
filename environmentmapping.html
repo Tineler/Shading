@@ -121,7 +121,22 @@
     };
             
     var uniforms = {
-      // TODO: define uniforms here
+        lightPosition: {
+            type: "v3",
+            value: new THREE.Vector3(1.0, -0.5, 1.0)
+        },
+        mixValue: {
+            type: "f",
+            value: 0.1
+        },
+        primaryColor: {
+            type: "v3",
+            value: new THREE.Vector3(0.5, 0.5, 0.5)
+        },
+        cube: {
+            type: "t",
+            value: textureCam.renderTarget
+        }
     };
     
     
@@ -178,16 +193,18 @@
   }
   
   function render() {
-    var elapsed = clock.getElapsedTime() / 2.0;
-    
-    object.position.z = Math.cos(elapsed) * 25;
-    object.position.x = Math.sin(elapsed) * 25;
-    // TODO: update Position of textureCam
+      var elapsed = clock.getElapsedTime() / 2.0;
 
-    // TODO: update CubeMap of textureCam
-    // don't forget to make the object invisible before
-    object.visible = true;
-    renderer.render(scene, camera);
+      object.position.z = Math.cos(elapsed) * 25;
+      object.position.x = Math.sin(elapsed) * 25;
+
+      textureCam.position.z = object.position.z;
+      textureCam.position.x = object.position.x;
+
+      object.visible = false;
+      textureCam.updateCubeMap(renderer, scene);
+      object.visible = true;
+      renderer.render(scene, camera);
   }
   
 </script>
