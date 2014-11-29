@@ -4,6 +4,6 @@ varying vec3 uLightDir;
 
 void main() {
     Normal = normalize(normalMatrix * normal);
-    uLightDir = normalize(viewMatrix * vec4(-lightDir, 1.0)).xyz;
+    uLightDir = normalize(viewMatrix * vec4(-lightDir, 0.0)).xyz;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }

@@ -7,17 +7,22 @@ varying vec3 toCamera;
 
 void main(void)
 {
-    vec3 binormal = cross(normal, tangent);
+    vec3 pos = normalize(modelMatrix * vec4(position, 1.0)).xyz;
+
+    vec3 Normal = normalize(modelMatrix * vec4(normal, 0.0)).xyz;
+    vec3 Tangent = normalize(modelMatrix * vec4(tangent, 0.0)).xyz;
+
+    vec3 binormal = cross(Normal, tangent);
     mat3 tbn = mat3(
-        vec3(tangent.x, binormal.x, normal.x),
-        vec3(tangent.y, binormal.y, normal.y),
-        vec3(tangent.z, binormal.z, normal.z)
+        vec3(Tangent.x, binormal.x, Normal.x),
+        vec3(Tangent.y, binormal.y, Normal.y),
+        vec3(Tangent.z, binormal.z, Normal.z)
     );
 
-    toLight = lightPosition - position;
+    toLight = lightPosition - pos;
     toLight = normalize(tbn * toLight);
 
-    toCamera = cameraPosition - position;
+    toCamera = cameraPosition - pos;
     toCamera = normalize(tbn * toCamera);
 
     vUv = uv;

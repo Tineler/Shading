@@ -4,10 +4,15 @@ varying float lambert;
 
 void main(void)
 {
-  vec3 viewDirection = normalize(position - cameraPosition);
-  reflection = reflect(viewDirection, normal);
+  vec3 Normal = normalize(modelMatrix * vec4(normal, 0.0)).xyz;
 
-  lambert = max(0.0, dot(normal, lightPosition));
+  vec3 pos = normalize(modelMatrix * vec4(position, 1.0)).xyz;
+
+  vec3 viewDirection = normalize(pos - cameraPosition);
+  vec3 lightDir = normalize(pos - lightPosition);
+  reflection = reflect(viewDirection, Normal);
+
+  lambert = max(0.0, dot(Normal, lightDir));
 
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
