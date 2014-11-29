@@ -7,8 +7,8 @@ Tree type of Shaders created with WebGL and three.js:
   * Texture Mapping
   * Normal Mapping
   * Parallax Mapping
-* Environment Mapping (tbd)
-  * Vertex Shader (tbd)
-  * Fragment Shader (tbd)
+* Environment Mapping
+  * Vertex Shader
+  * Fragment Shader
   
 To view the files, fork this repo and open the html-files in your browser.
