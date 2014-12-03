@@ -12,7 +12,7 @@ void main(void)
     vec3 Normal = normalize(modelMatrix * vec4(normal, 0.0)).xyz;
     vec3 Tangent = normalize(modelMatrix * vec4(tangent, 0.0)).xyz;
 
-    vec3 binormal = cross(Normal, tangent);
+    vec3 binormal = cross(Normal, Tangent);
     mat3 tbn = mat3(
         vec3(Tangent.x, binormal.x, Normal.x),
         vec3(Tangent.y, binormal.y, Normal.y),
